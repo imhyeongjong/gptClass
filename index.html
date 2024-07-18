@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>여행 블로그</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>여행 블로그</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">홈</a></li>
+                <li><a href="#about">소개</a></li>
+                <li><a href="#contact">연락처</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <!-- 이미지 슬라이드를 담을 부분 -->
+        <div class="slideshow-container">
+            <div class="mySlides fade">
+                <img src="image1.jpg">
+            </div>
+            <div class="mySlides fade">
+                <img src="image2.jpg">
+            </div>
+            <div class="mySlides fade">
+                <img src="image3.jpg">
+            </div>
+        </div>
+        
+        <br>
+        
+        <!-- 이미지 변경을 제어할 버튼 -->
+        <div style="text-align:center">
+            <button class="prev" onclick="plusSlides(-1)">이전</button>
+            <button class="next" onclick="plusSlides(1)">다음</button>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 여행 블로그. 모든 권리 보유.</p>
+    </footer>
+    <script src="scripts.js"></script>
+    <script>
+        // 이미지 슬라이드 기능을 위한 JavaScript 코드
+        var slideIndex = 0;
+        showSlides();
+
+        function showSlides() {
+            var i;
+            var slides = document.getElementsByClassName("mySlides");
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";  
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) {slideIndex = 1}    
+            slides[slideIndex-1].style.display = "block";  
+            setTimeout(showSlides, 3000); // 3초마다 이미지 변경
+        }
+
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+    </script>
+</body>
+</html>
